@@ -1,14 +1,3 @@
-// This example shows how to render pages that perform AJAX calls
-// upon page load.
-//
-// Instead of waiting a fixed amount of time before doing the render,
-// we are keeping track of every resource that is loaded.
-//
-// Once all resources are loaded, we wait a small amount of time
-// (resourceWait) in case these resources load other resources.
-//
-// The page is rendered after a maximum amount of time (maxRenderTime)
-// or if no new resources are loaded.
 var system = require('system');
 var args = system.args;
 

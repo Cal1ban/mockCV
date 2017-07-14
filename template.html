@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+        <meta name="viewport" content="user-scalable=no,width=device-width" />
+
+        <title>GumGum Demo</title>
+
+        <style>
+            body {
+                position: absolute;
+                width: 100%;
+                background:#ffffff;
+                margin:0;
+                padding:0;
+            }
+            #container {margin-left: auto;margin-right: auto;}
+
+            #demoimg {
+position: relative;top: 420px;left: 326px;width: 722px;height: 463px;
+            }
+            #topbar1 {
+                background-color: #fff;
+                height: 21px;
+                position: absolute;
+                width: 100%;
+                z-index: -1;
+                /*border-bottom: 1px solid #ebebeb;*/
+            }
+            #topbar2 {
+                background-color: #fff;
+                height: 20px;
+                position: absolute;
+                top: 51px;
+                width: 100%;
+                z-index: -1;
+            }
+            @media (max-width:600px) {
+
+                #demoimg {
+                    position: relative;
+                    top: 535px;
+                    left: 8px;
+                    width: 398px;
+                    height: 261px;
+                }
+
+                #topbar1, #topbar2 {
+                    display:none;
+                }
+
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="topbar1"></div>
+        <div id="topbar2"></div>
+        <div id="container">
+            <img class="withgumgum" src="http://c.gumgum.com/ads/com/gumgum/transparent_700.png" id="demoimg"/>
+        </div>
+<script>!function(){var a,b="ggv2id",c="https://g2.gumgum.com/javascripts/ggv2.js",d=top,e="script",f=d.document,g=f.getElementsByTagName(e)[0],h=d.XMLHttpRequest||d.XDomainRequest,i=function(a){var b=f.createElement(e);b.src=a,b.async=!0,g.parentNode.insertBefore(b,g)},j=function(){d.clearTimeout(a)};return d.ggv2id=b,h?(h=new h,h.open("GET",c),h.onload=function(){j();try{(d.execScript||function(a){d.eval.call(d,a)})(h.responseText)}catch(a){}},a=d.setTimeout(function(){h.abort()},3e3),void h.send()):i(c)}();</script>
+        <script>
+            //Autosize bg
+            function autosize() {
+                var bgdt = 'main_image.jpg';
+                var bgmob = 'bgmob.png';
+                var con = document.getElementById('container');
+
+                var i = new Image();
+                var bg = window.innerWidth <= 600 ? bgmob : bgdt;
+                i.src = bg;
+                i.onload = function() {
+                    con.style.background = '#fff url('+bg+') no-repeat top center';
+                    con.style.width = i.width+'px';
+                    con.style.height = i.height+'px';
+                };
+            };
+            autosize();
+            window.addEventListener('resize', autosize);
+
+        </script>
+
+
+    </body>
+
+</html>

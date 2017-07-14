@@ -98,19 +98,9 @@ for imagePath in glob.glob(args["images"] + "/*.jpg"):
 		if found is None or maxVal > found[0]:
 			found = (maxVal, maxLoc, r)
 
-	# unpack the bookkeeping varaible and compute the (x, y) coordinates
-	# of the bounding box based on the resized ratio
+	# unpack the bookkeeping varaible and compute (x, y) coordinates
 	print('4')
 	(_, maxLoc, r) = found
 	(startX, startY) = (int(maxLoc[0] * r), int(maxLoc[1] * r))
 	(endX, endY) = (int((maxLoc[0] + tW) * r), int((maxLoc[1] + tH) * r))
 	dataWriter(startX,startY,endX,endY)
-	print(startX)
-	print(startY)
-	print(endX)
-	print(endY)
-
-	# draw a bounding box around the detected result and display the image
-	cv2.rectangle(image, (startX, startY), (endX, endY), (0, 0, 255), 2)
-	cv2.imshow("Image", image)
-	cv2.waitKey(0)
